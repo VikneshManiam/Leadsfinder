@@ -1,0 +1,159 @@
+// Deploy Instructions:
+// 1. Create a Next.js app: npx create-next-app@latest
+// 2. Replace app/page.js with this file
+// 3. Run locally: npm run dev
+// 4. Push to GitHub
+// 5. Deploy free on Vercel by importing the GitHub repo
+// 6. Your site will instantly get a public URL
+
+export default function LeadsFinderMVP() {
+  const leads = [
+    {
+      company: 'TechForge Automation',
+      industry: 'Industrial Automation',
+      location: 'Kuala Lumpur',
+      score: 92,
+      signal: 'Hiring automation engineers',
+      contact: 'operations@techforge.my'
+    },
+    {
+      company: 'NexPlant Manufacturing',
+      industry: 'Manufacturing',
+      location: 'Penang',
+      score: 88,
+      signal: 'Factory expansion detected',
+      contact: 'procurement@nexplant.com'
+    },
+    {
+      company: 'Vision Robotics Asia',
+      industry: 'Robotics',
+      location: 'Johor',
+      score: 95,
+      signal: 'Recently received funding',
+      contact: 'business@visionrobotics.asia'
+    },
+    {
+      company: 'SecureComply Solutions',
+      industry: 'Compliance Software',
+      location: 'Selangor',
+      score: 81,
+      signal: 'Expanding AML operations',
+      contact: 'growth@securecomply.io'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <div className="bg-white rounded-3xl shadow-lg p-6">
+          <h1 className="text-4xl font-bold mb-2">AI Leads Finder</h1>
+          <p className="text-gray-600 text-lg">
+            Find high-potential companies using AI signals and business intelligence.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-4 mt-6">
+            <input
+              placeholder="Industry"
+              className="border rounded-2xl p-3"
+            />
+            <input
+              placeholder="Location"
+              className="border rounded-2xl p-3"
+            />
+            <input
+              placeholder="Intent Signal"
+              className="border rounded-2xl p-3"
+            />
+            <button className="bg-black text-white rounded-2xl p-3 font-semibold hover:opacity-90 transition">
+              Search Leads
+            </button>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-2">Total Leads</h2>
+            <p className="text-5xl font-bold">1,248</p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-2">High Intent</h2>
+            <p className="text-5xl font-bold">312</p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-2">Industries Covered</h2>
+            <p className="text-5xl font-bold">18</p>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-lg p-6 overflow-x-auto">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold">Lead Opportunities</h2>
+            <button className="border rounded-2xl px-4 py-2 hover:bg-gray-100 transition">
+              Export CSV
+            </button>
+          </div>
+
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b">
+                <th className="p-3">Company</th>
+                <th className="p-3">Industry</th>
+                <th className="p-3">Location</th>
+                <th className="p-3">AI Score</th>
+                <th className="p-3">Intent Signal</th>
+                <th className="p-3">Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              {leads.map((lead, index) => (
+                <tr
+                  key={index}
+                  className="border-b hover:bg-gray-50 transition"
+                >
+                  <td className="p-3 font-medium">{lead.company}</td>
+                  <td className="p-3">{lead.industry}</td>
+                  <td className="p-3">{lead.location}</td>
+                  <td className="p-3">
+                    <span className="bg-black text-white px-3 py-1 rounded-full text-sm">
+                      {lead.score}
+                    </span>
+                  </td>
+                  <td className="p-3">{lead.signal}</td>
+                  <td className="p-3 text-blue-600">{lead.contact}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-2xl font-bold mb-4">Potential AI Features</h2>
+            <ul className="space-y-3 text-gray-700">
+              <li>• AI lead scoring</li>
+              <li>• Factory expansion detection</li>
+              <li>• Hiring signal tracking</li>
+              <li>• Funding round monitoring</li>
+              <li>• CRM integrations</li>
+              <li>• Automated outreach generation</li>
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-2xl font-bold mb-4">Future Stack</h2>
+            <ul className="space-y-3 text-gray-700">
+              <li>• React + Tailwind frontend</li>
+              <li>• Node.js backend</li>
+              <li>• MongoDB or PostgreSQL</li>
+              <li>• Python scraping pipelines</li>
+              <li>• OpenAI or local LLM scoring</li>
+              <li>• Email enrichment APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
